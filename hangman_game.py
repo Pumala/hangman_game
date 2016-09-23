@@ -9,16 +9,7 @@ def hangman_game():
     # use letter_amt to generate how many letter positions
     split_list = ["_"] * letter_amt
     found_word = False
-    # create a list of the phrase's letters
-    # ex: phrase = "toy", stored_letters = ["t","o","y"]
-    stored_letters = []
     count = 7
-    i = 0
-    while i < len(phrase):
-        for letter in phrase:
-            stored_letters.append(phrase[i])
-            i += 1
-    print stored_letters
 
     while count > 0 and not found_word:
         print "Player 2: You have %d guesses left." % count
@@ -32,7 +23,7 @@ def hangman_game():
         else:
             index = 0
             found_letter = False
-            for letter in stored_letters:
+            for letter in phrase:
                 if input == letter:
                     split_list[index] = letter
                     found_letter = True
