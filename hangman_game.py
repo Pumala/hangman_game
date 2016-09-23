@@ -7,9 +7,7 @@ def hangman_game():
     # find the length of the phrase and store it in a variable
     letter_amt = len(phrase)
     # use letter_amt to generate how many letter positions
-    lines = "_ " * (letter_amt - 1) + "_"
-    # create a list => list stores blank values using "_"
-    split_list = lines.split(" ")
+    split_list = ["_"] * letter_amt
     found_word = False
     # create a list of the phrase's letters
     # ex: phrase = "toy", stored_letters = ["t","o","y"]
