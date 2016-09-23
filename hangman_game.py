@@ -2,11 +2,17 @@ import getpass
 
 def hangman_game():
     print "Welcome to the game of hangman!"
+    # use getpass to hide the user's typed secret word from the screen
     phrase = getpass.getpass("Player 1: Please enter the secret word: ")
+    # find the length of the phrase and store it in a variable
     letter_amt = len(phrase)
+    # use letter_amt to generate how many letter positions
     lines = "_ " * (letter_amt - 1) + "_"
+    # create a list => list stores blank values using "_"
     split_list = lines.split(" ")
     found_word = False
+    # create a list of the phrase's letters
+    # ex: phrase = "toy", stored_letters = ["t","o","y"]
     stored_letters = []
     count = 7
     i = 0
@@ -14,9 +20,12 @@ def hangman_game():
         for letter in phrase:
             stored_letters.append(phrase[i])
             i += 1
+    print stored_letters
 
     while count > 0 and not found_word:
         print "Player 2: You have %d guesses left." % count
+        # Show Player 2 a visual of the word that is left to guess
+        # ex: phrase = "school", split_list = ["_","c","_","o","o","_"]
         print split_list
         input = raw_input("Player 2: Choose a letter or guess the phrase: ")
         if input == phrase:
